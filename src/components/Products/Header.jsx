@@ -4,15 +4,16 @@ import { Link } from "react-router-dom";
 import { Menu, X, LogOut } from "lucide-react";
 import { useCart } from "../Cart/CartContext";
 
-function Header({ user, username, setUser}) {
-  const { toggleCart, cartCount } = useCart();
+function Header({ user, setUser }) {
+  const { toggleCart, cartCount, clearCart } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
 
   function handleLogout() {
     localStorage.removeItem("user");
     setUser(null);
+    clearCart();
+    setMenuOpen(false);
   }
-
 
   return (
     <header className="bg-white fixed top-0 left-0 right-0 border-b border-gray-200 z-50">
@@ -62,14 +63,14 @@ function Header({ user, username, setUser}) {
             {!user ? (
               <Link
                 to="/login"
-                className="border border-teal-500 text-teal-500 px-4 py-2 hover:text-white rounded-md hover:bg-teal-500 transition"
+                className="border border-teal-500 text-teal-500 px-4 py-2 rounded-md hover:bg-teal-500 hover:text-white transition"
               >
                 Login
               </Link>
             ) : (
               <>
                 <span className="font-medium text-gray-700">
-                  {username}
+                  {user.username}
                 </span>
 
                 <button
@@ -108,7 +109,7 @@ function Header({ user, username, setUser}) {
             ) : (
               <>
                 <span className="px-4 font-medium text-gray-700">
-                  {username}
+                  {user.username}
                 </span>
 
                 <button

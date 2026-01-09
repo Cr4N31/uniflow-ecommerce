@@ -48,6 +48,19 @@ function CartList() {
       <div className="mt-4 font-bold">
         Total: ${total}
       </div>
+      <div>
+        <button  
+          className='bg-teal-500 text-white mt-4 transition-all ease px-4 py-2 hover:bg-white     disabled:opacity-50
+                    disabled:cursor-not-allowed
+                    disabled:hover:bg-teal-500
+                    disabled:hover:text-white
+                    disabled:hover:border-none hover:text-teal-500 hover:border hover:border-teal-500' 
+           disabled={!cart?.length} 
+          type='submit'
+          >
+            Checkout
+          </button>
+      </div>
     </div>
   );
 }
