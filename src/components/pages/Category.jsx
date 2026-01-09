@@ -25,7 +25,7 @@ function Category() {
           Shop by Category
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Explore Uniflow’s range of carefully selected toilet utilities and
+          Explore Uniflo’s range of carefully selected toilet utilities and
           modern bathroom gadgets designed for everyday living.
         </p>
       </div>

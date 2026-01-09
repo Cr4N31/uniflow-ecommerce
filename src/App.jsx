@@ -1,32 +1,57 @@
-import { CartProvider } from "./components/Cart/CartContext";
+import { CartProvider, useCart } from "./components/Cart/CartContext";
 import ProductLayout from "./components/Products/ProductLayout";
 import CartLayout from "./components/Cart/CartLayout";
-import { useCart } from "./components/Cart/CartContext";
-import { useEffect } from 'react'
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
+import AuthLayout from "./components/auth/AuthLayout";
+import { useState, useEffect } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function AppContent() {
-  const { isCartOpen } = useCart();
+  const { isCartOpen } = useCart(); // ✅ useCart is now inside CartProvider
+  const [user, setUser] = useState(null);
+   const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) setUser(JSON.parse(savedUser));
+  }, []);
 
   return (
     <>
-      <ProductLayout/>
+      <Routes>
+        {/* Public route */}
+        <Route path="/" element={<ProductLayout  
+          user={user} 
+          username={username} 
+          setUsername={setUsername}  />} />
 
-      {/* Cart sidebar */}
+        {/* Login route */}
+        <Route
+          path="/login"
+          element={!user ? <AuthLayout  
+            setUser={setUser} 
+            username={username} 
+            setUsername={setUsername} 
+          /> : 
+          <Navigate to="/" />}
+        />
+      </Routes>
+
+      {/* Cart sidebar rendered outside Routes */}
       {isCartOpen && <CartLayout />}
     </>
   );
 }
 
 function App() {
-    useEffect(() => {
+  useEffect(() => {
     AOS.init({
       duration: 1200, // animation duration in ms
-      once: true,     // whether animation should happen only once
+      once: false, // whether animation should happen only once
     });
   }, []);
+
   return (
     <CartProvider>
       <AppContent />

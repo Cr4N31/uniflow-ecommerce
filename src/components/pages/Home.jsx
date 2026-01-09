@@ -7,7 +7,7 @@ function Home({ currentPage, setCurrentPage }) {
       <section className="max-w-7xl mx-auto text-center py-20" data-aos="fade-up">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
           Shop Smarter with{" "}
-          <span className="text-teal-500">Uniflow</span>
+          <span className="text-teal-500">Uniflo</span>
         </h1>
 
         <p className="text-gray-600 max-w-2xl mx-auto text-lg mb-10">

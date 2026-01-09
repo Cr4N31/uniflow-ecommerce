@@ -1,11 +1,18 @@
 import { useState } from "react";
 import CartIcon from "../../assets/cart-shopping-svgrepo-com.svg";
-import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Menu, X, LogOut } from "lucide-react";
 import { useCart } from "../Cart/CartContext";
 
-function Header({ user }) {
+function Header({ user, username, setUser}) {
   const { toggleCart, cartCount } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  function handleLogout() {
+    localStorage.removeItem("user");
+    setUser(null);
+  }
+
 
   return (
     <header className="bg-white fixed top-0 left-0 right-0 border-b border-gray-200 z-50">
@@ -17,7 +24,7 @@ function Header({ user }) {
           {/* Logo + Mobile Controls */}
           <div className="flex items-center justify-between">
             <h1 className="text-xl md:text-2xl font-bold text-teal-500">
-              Uniflow
+              Uniflo
             </h1>
 
             {/* Mobile Cart + Hamburger */}
@@ -51,9 +58,29 @@ function Header({ user }) {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-6">
-            <button className="border border-teal-500 text-teal-500 px-4 py-2 hover:text-white rounded-md hover:bg-teal-500 transition">
-              {!user ? "Login" : "My Account"}
-            </button>
+
+            {!user ? (
+              <Link
+                to="/login"
+                className="border border-teal-500 text-teal-500 px-4 py-2 hover:text-white rounded-md hover:bg-teal-500 transition"
+              >
+                Login
+              </Link>
+            ) : (
+              <>
+                <span className="font-medium text-gray-700">
+                  {username}
+                </span>
+
+                <button
+                  onClick={handleLogout}
+                  className="text-red-500 hover:text-red-600 transition"
+                  title="Logout"
+                >
+                  <LogOut size={22} />
+                </button>
+              </>
+            )}
 
             <button onClick={toggleCart} className="relative">
               {cartCount > 0 && (
@@ -69,9 +96,30 @@ function Header({ user }) {
         {/* Mobile Menu */}
         {menuOpen && (
           <div className="mt-4 md:hidden flex flex-col gap-3 border-t pt-4">
-            <button className="border border-teal-500 text-teal-500 px-4 py-2 rounded-md hover:bg-teal-50 transition">
-              {!user ? "Login" : "My Account"}
-            </button>
+
+            {!user ? (
+              <Link
+                to="/login"
+                className="border border-teal-500 text-teal-500 px-4 py-2 rounded-md hover:bg-teal-500 hover:text-white transition"
+                onClick={() => setMenuOpen(false)}
+              >
+                Login
+              </Link>
+            ) : (
+              <>
+                <span className="px-4 font-medium text-gray-700">
+                  {username}
+                </span>
+
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-2 text-red-500 px-4 py-2"
+                >
+                  <LogOut size={20} />
+                  Logout
+                </button>
+              </>
+            )}
           </div>
         )}
 
