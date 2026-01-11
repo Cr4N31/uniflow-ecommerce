@@ -1,16 +1,111 @@
-# React + Vite
+# Uniflo E-commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Live Demo](https://uniflo-ecommerce.vercel.app) | [GitHub Repo](https://github.com/Cr4N31/uniflo-ecommerce)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Screenshots](#screenshots)
+- [Future Improvements](#future-improvements)
+- [Contact](#contact)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Overview
+**Uniflo E-commerce** is a modern, responsive online store built with **React** and **Vite**.  
+It simulates an e-commerce shopping experience for a company selling bathroom equipment.  
+The project demonstrates building dynamic UIs, managing state, and integrating interactive components in React.  
 
-## Expanding the ESLint configuration
+This project is perfect for showcasing your React and frontend skills to potential employers or clients.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Features
+- **Product Catalog:** Browse through a variety of bathroom products.
+- **Shopping Cart:** Add and remove items, with quantity adjustments.
+- **Responsive Design:** Fully optimized for mobile, tablet, and desktop.
+- **Dynamic UI Components:** Buttons, cards, modals, and forms.
+- **Fast Development Setup:** Powered by Vite for quick HMR and builds.
+- **Code Quality:** ESLint configured to enforce best practices.
+
+---
+
+## Tech Stack
+- **Frontend:** React, HTML, CSS, JavaScript
+- **Build Tool:** Vite
+- **Code Quality:** ESLint
+- **Deployment:** Vercel (Live demo link above)
+
+---
+
+## Project Structure
+
+Here’s a breakdown of the repo:
+
+uniflo-ecommerce/
+│
+├── public/ # Static assets like images, icons, and favicon
+│ └── images/
+├── src/ # Source code
+│ ├── assets/ # Images, icons, and other assets
+│ ├── components/ # Reusable React components
+│ │ ├── Cart/
+│ │ ├── ProductCard/
+│ │ ├── Navbar/
+│ │ └── Footer/
+│ ├── pages/ # App pages (Home, Products, Cart)
+│ ├── App.jsx # Root component
+│ ├── main.jsx # React DOM rendering
+│ └── styles/ # CSS or Tailwind styles
+├── .eslintrc.js # ESLint configuration
+├── package.json # Dependencies and scripts
+├── vite.config.js # Vite configuration
+└── README.md # Project documentation (this file)
+
+
+---
+
+## Getting Started
+
+### Prerequisites
+Make sure you have **Node.js** and **npm** installed.  
+Verify by running:
+
+```bash
+node -v
+npm -v
+Installation
+
+1. Clone the repository:
+
+git clone https://github.com/Cr4N31/uniflo-ecommerce.git
+cd uniflo-ecommerce
+
+
+2. Install dependencies:
+
+npm install
+
+
+3. Start the development server:
+
+npm run dev
+
+Future Improvements
+
+User Authentication: Login/signup with JWT or Firebase.
+
+Checkout Flow: Simulate payment and order confirmation.
+
+State Management: Integrate Redux or Context API for better state handling.
+
+Backend Integration: Connect to a real database and API.
+
+Animations & UX: Add micro-interactions, hover effects, and animated transitions.
+
+Dark Mode: Toggle between light and dark themes.
