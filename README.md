@@ -95,17 +95,3 @@ npm install
 3. Start the development server:
 
 npm run dev
-
-Future Improvements
-
-User Authentication: Login/signup with JWT or Firebase.
-
-Checkout Flow: Simulate payment and order confirmation.
-
-State Management: Integrate Redux or Context API for better state handling.
-
-Backend Integration: Connect to a real database and API.
-
-Animations & UX: Add micro-interactions, hover effects, and animated transitions.
-
-Dark Mode: Toggle between light and dark themes.
